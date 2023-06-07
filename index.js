@@ -1,8 +1,8 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
+const generateImage = require('./generateImage');
 
 // Questions array for image creation
-
 const questions = [
  {
     type: 'input',
@@ -27,3 +27,11 @@ const questions = [
     message: 'Please choose a color keyword or hex code for your shape color',
  }
 ]
+
+function init() {
+    inquirer
+        .createPromptModule(questions)
+        
+}
+
+init();
