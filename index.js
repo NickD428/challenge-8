@@ -30,7 +30,7 @@ const questions = [
 
 function init() {
     inquirer
-        .createPromptModule(questions)
+        .prompt(questions)
         
 }
 
