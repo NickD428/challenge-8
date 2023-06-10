@@ -1,3 +1,4 @@
+// Requirements to run the function
 const inquirer = require('inquirer');
 const fs = require('fs');
 
@@ -33,8 +34,9 @@ function init() {
     inquirer
         .prompt(questions)
         .then((answers) => {
+         // Variable to hold the prompt answers for template literals
          const { imageText, textColor, shape, shapeColor } = answers;
-     
+         // Variable and switch statement to manage the shape and color of the images
          let shapeSVG = '';
      
          switch (shape) {
@@ -51,13 +53,14 @@ function init() {
              console.log('Invalid shape.');
              return;
          }
-     
+         // Variable that calls on the w3 svg xml to create the image based off prompt inputs
          const svgContent = `
            <svg xmlns="http://www.w3.org/2000/svg" width="300" height="200">
              ${shapeSVG}
              <text x="50%" y="50%" fill="${textColor}" font-size="20px" dominant-baseline="middle" text-anchor="middle">${imageText}</text>
            </svg>
          `;
+         // Function to create the image
          fs.writeFile('logo.svg', svgContent, (err) => {
             if (err) {
               console.error(err);
@@ -70,4 +73,7 @@ function init() {
           console.error(error);
         });
        }
+   
+
+   // Calls the function
    init()
