@@ -58,17 +58,5 @@ function init() {
              <text x="50%" y="50%" fill="${textColor}" font-size="20px" dominant-baseline="middle" text-anchor="middle">${imageText}</text>
            </svg>
          `;
-     
-         fs.writeFile('logo.svg', svgContent, (err) => {
-           if (err) {
-             console.error(err);
-           } else {
-             console.log('Logo generated successfully!');
-           }
-         });
-       })
-       .catch((error) => {
-         console.error(error);
-       });
-      }
+      })}
    init()
